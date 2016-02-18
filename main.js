@@ -2,96 +2,88 @@ var express = require('express');
 var moment = require('moment');
 var bodyParser = require('body-parser');
 var MongoClient = require('mongodb').MongoClient;
-var Q = require('q');
 
 var app = express();
 
 var DB_URL = 'mongodb://localhost:27017/bodybuilding';
 var APP_PORT = 3000;
 
-function query(handler) {
-    MongoClient.connect(DB_URL, function (err, db) {
-        handler(db, function () {
-            db.close();
-        });
-    });
+var dbPromise = MongoClient.connect(DB_URL);
+
+function getTodayDate() {
+    return moment().format('DD.MM.YYYY');
 }
 
 app.get('/meals', function (req, res) {
-    query(function (db, done) {
-        db.collection('meals').find({}).toArray(function (err, meals) {
-            if (err) {
-                res.status(500).json({ error: err });
-                return done();
-            }
-
+    dbPromise
+        .then(function (db) {
+            return db.collection('meals').find({}).toArray();
+        })
+        .then(function (meals) {
             res.json({ meals: meals });
-            done();
+        })
+        .catch(function (err) {
+            res.status(500).text(err);
         });
-    });
 });
 
 app.get('/items', function (req, res) {
-    query(function (db, done) {
-        db.collection('items').find({}).toArray(function (err, items) {
-            if (err) {
-                res.status(500).json({ error: err });
-                return done();
-            }
-
+    dbPromise
+        .then(function (db) {
+            return db.collection('items').find({}).toArray();
+        })
+        .then(function (items) {
             res.json({ items: items });
-            done();
+        })
+        .catch(function (err) {
+            res.status(500).text(err);
         });
-    });
 });
 
 app.get('/stats', function (req, res) {
-    query(function (db, done) {
-        db.collection('stats').findOne({}, function (err, stats) {
-            if (err) {
-                res.status(500).json({ error: err });
-                return done();
-            }
-
+    dbPromise
+        .then(function (db) {
+            return db.collection('stats').findOne({});
+        })
+        .then(function (stats) {
             res.json({ stats: stats });
-            done();
+        })
+        .catch(function (err) {
+            res.status(500).text(err);
         });
-    });
 });
 
 app.post('/items', function (req, res) {
-    query(function (db, done) {
-        var today = moment().format('DD.MM.YYYY');
+    var today = getTodayDate();
 
-        db.collection('items').findOneAndReplace({ date: today }, { date: today, items: req.body.items }, { upsert: true }, function (err) {
-            if (err) {
-                res.status(500).json({ error: err });
-                return done();
-            }
-
+    dbPromise
+        .then(function (db) {
+            return db.collection('items').findOneAndReplace({ date: today }, { date: today, items: req.body.items }, { upsert: true });
+        })
+        .then(function () {
             res.json({});
-            done();
+        })
+        .catch(function (err) {
+            res.status(500).text(err);
         });
-    });
 });
 
 app.post('/stats', function (req, res) {
-    query(function (db, done) {
-        var today = moment().format('DD.MM.YYYY');
-        var stats = req.body.stats;
+    var today = getTodayDate();
 
-        stats.date = today;
+    var stats = req.body.stats;
+    stats.date = today;
 
-        db.collection('stats').findOneAndReplace({ date: today }, stats, { upsert: true }, function (err) {
-            if (err) {
-                res.status(500).json({ error: err });
-                return done();
-            }
-
+    dbPromise
+        .then(function (db) {
+            return db.collection('stats').findOneAndReplace({ date: today }, stats, { upsert: true });
+        })
+        .then(function () {
             res.json({});
-            done();
+        })
+        .catch(function (err) {
+            res.status(500).text(err);
         });
-    });
 });
 
 app.use(bodyParser.json());
