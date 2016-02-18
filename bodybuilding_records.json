@@ -1,0 +1,248 @@
+[
+    {
+        "date": "11.02.2016",
+        "items": [{
+            "item": "банан",
+            "amount": 240
+        }, {
+            "item": "jogurt naturalny",
+            "amount": 150
+        }, {
+            "item": "fit lunch",
+            "amount": 100
+        }, {
+            "item": "кава з молоком",
+            "amount": 220
+        }, {
+            "item": "мандарин",
+            "amount": 50
+        }, {
+            "item": "апельсин",
+            "amount": 500
+        }, {
+            "item": "вечеря буськи",
+            "amount": 350
+        }, {
+            "item": "біг",
+            "amount": 283
+        }]
+    },
+
+    {
+        "date": "12.02.2016",
+        "items": [{
+            "item": "яблоко",
+            "amount": 150
+        }, {
+            "item": "Каша гречневая рассыпчатая",
+            "amount": 170
+        }, {
+            "item": "Яйцо куриное (вареное всмятку)",
+            "amount": 100
+        }, {
+            "item": "кава з молоком",
+            "amount": 440
+        }, {
+            "item": "мандарин",
+            "amount": 60
+        }, {
+            "item": "Запеченное куриное филе",
+            "amount": 90
+        }, {
+            "item": "виноград",
+            "amount": 100
+        }, {
+            "item": "банан",
+            "amount": 180
+        }, {
+            "item": "вечеря буськи",
+            "amount": 300
+        }, {
+            "item": "печиво-сердечко",
+            "amount": 70
+        }, {
+            "item": "біг",
+            "amount": 0
+        }]
+    },
+
+    {
+        "date": "13.02.2016",
+        "items": [{
+            "item": "FruVita",
+            "amount": 50
+        }, {
+            "item": "Каша гречневая рассыпчатая",
+            "amount": 50
+        }, {
+            "item": "Салат",
+            "amount": 15
+        }, {
+            "item": "кава з молоком",
+            "amount": 200
+        }, {
+            "item": "Помидор",
+            "amount": 40
+        }, {
+            "item": "Запеченное куриное филе",
+            "amount": 170
+        }, {
+            "item": "Оливки (green)",
+            "amount": 20
+        }, {
+            "item": "банан",
+            "amount": 250
+        }, {
+            "item": "Сырники с изюмом",
+            "amount": 400
+        }, {
+            "item": "біг",
+            "amount": 0
+        }]
+    },
+
+    {
+        "date": "14.02.2016",
+        "items": [{
+            "item": "кава з молоком",
+            "amount": 600
+        }, {
+            "item": "Запеченное куриное филе",
+            "amount": 70
+        }, {
+            "item": "Оливки (green)",
+            "amount": 20
+        }, {
+            "item": "банан",
+            "amount": 550
+        }, {
+            "item": "Морозиво",
+            "amount": 200
+        }, {
+            "item": "Вино красное",
+            "amount": 0
+        }, {
+            "item": "Рассольник",
+            "amount": 500
+        }, {
+            "item": "біг",
+            "amount": 0
+        }]
+    },
+
+    {
+        "date": "15.02.2016",
+        "items": [{
+            "item": "кава з молоком",
+            "amount": 880
+        }, {
+            "item": "банан",
+            "amount": 300
+        }, {
+            "item": "Хлеб бородинский",
+            "amount": 80
+        }, {
+            "item": "Ветчина",
+            "amount": 50
+        }, {
+            "item": "Fit lunch",
+            "amount": 100
+        }, {
+            "item": "Яблоко",
+            "amount": 200
+        }, {
+            "item": "Хліб білий",
+            "amount": 50
+        }, {
+            "item": "Рассольник",
+            "amount": 300
+        }, {
+            "item": "біг",
+            "amount": 283
+        }]
+    },
+
+    {
+        "date": "16.02.2016",
+        "items": [{
+            "item": "кава з молоком",
+            "amount": 440
+        }, {
+            "item": "банан",
+            "amount": 420
+        }, {
+            "item": "омлет",
+            "amount": 150
+        }, {
+            "item": "Говядина жареная",
+            "amount": 80
+        }, {
+            "item": "Fit lunch",
+            "amount": 30
+        }, {
+            "item": "Warzywa na patelni",
+            "amount": 125
+        }, {
+            "item": "біг",
+            "amount": 315
+        }]
+    },
+
+    {
+        "date": "17.02.2016",
+        "items": [{
+            "item": "кава з молоком",
+            "amount": 660
+        }, {
+            "item": "банан",
+            "amount": 300
+        }, {
+            "item": "Warzywa na patelni",
+            "amount": 325
+        }, {
+            "item": "Говядина жареная",
+            "amount": 55
+        }, {
+            "item": "Фруктовий салат",
+            "amount": 200
+        }, {
+            "item": "Fit lunch",
+            "amount": 85
+        }, {
+            "item": "Яблоко",
+            "amount": 500
+        }, {
+            "item": "біг",
+            "amount": 0
+        }]
+    },
+
+    {
+        "date": "18.02.2016",
+        "items": [{
+            "item": "кава з молоком",
+            "amount": 440
+        }, {
+            "item": "банан",
+            "amount": 50
+        }, {
+            "item": "chlebek czarny",
+            "amount": 30
+        }, {
+            "item": "Jogurt naturalny",
+            "amount": 90
+        }, {
+            "item": "ветчина",
+            "amount": 15
+        }, {
+            "item": "Fit lunch",
+            "amount": 100
+        }, {
+            "item": "Яблоко",
+            "amount": 30
+        }, {
+            "item": "біг",
+            "amount": 0
+        }]
+    }
+]
