@@ -37,7 +37,7 @@ angular.module('bodybuilding.controllers', [])
                 cancelText: 'Cancel',
                 buttonClicked: function(index) {
                     if (index == 0) {
-                        return $state.go('track-item');
+                        return $state.go('meals-list');
                     } else if (index == 1) {
                         return $state.go('track-weight');
                     }
@@ -77,14 +77,24 @@ angular.module('bodybuilding.controllers', [])
 
         $scope.weightLoss = function () {};
     })
-    .controller('TrackItemCtrl', function ($rootScope, $scope, $location, Server) {
-        $scope.selectItem = function (item) {
-            $scope.selectedItem = item;
+    .controller('MealsListCtrl', function ($rootScope, $scope, $state, Server) {
+        $scope.searchQuery = {};
+
+        $scope.selectItem = function (meal) {
+            $state.go('track-item', { meal: meal });
         };
+
+        $scope.cancel = function () {
+            $state.go('dashboard');
+        };
+    })
+    .controller('TrackItemCtrl', function ($rootScope, $scope, $state, $stateParams, Server) {
+        $scope.selectedMeal = $stateParams.meal;
+        $scope.selectedAmount = 0;
 
         $scope.save = function () {
             $rootScope.items = $rootScope.items.map(function (item) {
-                if (item.item == $scope.selectedItem.item) {
+                if (item.item == $scope.selectedMeal.item) {
                     item.amount += $scope.selectedAmount;
                 }
 
@@ -94,12 +104,12 @@ angular.module('bodybuilding.controllers', [])
             Server
                 .updateItems($rootScope.items)
                 .then(function () {
-                    $location.path('/');
+                    $state.go('dashboard');
                 });
         };
 
         $scope.cancel = function () {
-            $state('/');
+            $state.go('dashboard');
         };
     })
     .controller('TrackWeightCtrl', function ($rootScope, $scope, $location, Server) {

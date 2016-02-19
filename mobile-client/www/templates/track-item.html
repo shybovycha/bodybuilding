@@ -1,35 +1,27 @@
 <ion-view>
-    <ion-nav-bar>
-        <ion-nav-title>
-            <label class="item-input-wrapper">
-                <i class="icon ion-ios-search placeholder-icon"></i>
-                <input type="search" placeholder="Search for food/excercise" ng-model="searchQuery">
-            </label>
-        </ion-nav-title>
-
-        <ion-nav-buttons side="right">
+    <ion-nav-bar clas="bar-stable">
+        <ion-nav-buttons side="left">
             <button class="button button-clear" ng-click="cancel()">Cancel</button>
         </ion-nav-buttons>
+        <ion-nav-title>
+            {{ selectedMeal.item }}
+        </ion-nav-title>
+        <ion-nav-buttons side="right">
+            <button class="button button-clear" ng-click="save()">Save</button>
+        </ion-nav-buttons>
     </ion-nav-bar>
-
     <ion-content>
-        <div class="list">
-            <a href="javascript:void(0);" class="item" ng-repeat="meal in meals | filter:searchQuery" ng-click="selectItem(meal)">
-                <div class="row">
-                    <div class="col-80">{{ meal.item }}</div>
-                    <div class="col">{{ meal.calories }}</div>
+        <div class="card">
+            <div class="row">
+                <div class="col">
+                    <strong>Amount:</strong>
                 </div>
-            </a>
-        </button>
+                <div class="col">{{ selectedAmount }}</div>
+            </div>
+            <div class="item range">
+                <i class="icon ion-ios-speedometer-outline"></i>
+                <input type="range" name="amount" ng-model="selectedAmount" min="0" max="700">
+            </div>
+        </div>
     </ion-content>
-
-    <ion-footer-bar>
-        <div class="title">
-            <input type="text" placeholder="Amount" ng-model="selectedAmount">
-        </div>
-
-        <div class="buttons">
-            <button class="button button-assertive" ng-click="save()">Save</button>
-        </div>
-    </ion-footer-bar>
 </ion-view>

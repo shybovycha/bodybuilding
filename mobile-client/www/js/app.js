@@ -21,6 +21,11 @@ angular.module('bodybuilding', ['ionic', 'bodybuilding.controllers', 'bodybuildi
                 templateUrl: 'templates/dashboard.html',
                 controller: 'DashboardCtrl'
             })
+            .state('meals-list', {
+                url: '/meals-list',
+                templateUrl: 'templates/meals-list.html',
+                controller: 'MealsListCtrl'
+            })
             .state('track-item', {
                 url: '/track-item',
                 templateUrl: 'templates/track-item.html',
