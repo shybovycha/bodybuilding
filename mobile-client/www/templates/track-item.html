@@ -1,0 +1,35 @@
+<ion-view>
+    <ion-nav-bar>
+        <ion-nav-title>
+            <label class="item-input-wrapper">
+                <i class="icon ion-ios-search placeholder-icon"></i>
+                <input type="search" placeholder="Search for food/excercise" ng-model="searchQuery">
+            </label>
+        </ion-nav-title>
+
+        <ion-nav-buttons side="right">
+            <button class="button button-clear" ng-click="cancel()">Cancel</button>
+        </ion-nav-buttons>
+    </ion-nav-bar>
+
+    <ion-content>
+        <div class="list">
+            <a href="javascript:void(0);" class="item" ng-repeat="meal in meals | filter:searchQuery" ng-click="selectItem(meal)">
+                <div class="row">
+                    <div class="col-80">{{ meal.item }}</div>
+                    <div class="col">{{ meal.calories }}</div>
+                </div>
+            </a>
+        </button>
+    </ion-content>
+
+    <ion-footer-bar>
+        <div class="title">
+            <input type="text" placeholder="Amount" ng-model="selectedAmount">
+        </div>
+
+        <div class="buttons">
+            <button class="button button-assertive" ng-click="save()">Save</button>
+        </div>
+    </ion-footer-bar>
+</ion-view>

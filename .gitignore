@@ -1,2 +1,3 @@
 *.log
 node_modules
+mobile-client/www/lib

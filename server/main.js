@@ -14,6 +14,16 @@ function getTodayDate() {
     return moment().format('DD.MM.YYYY');
 }
 
+app.use(bodyParser.json());
+
+app.use(function (req, res, next) {
+    res.setHeader('Access-Control-Allow-Credentials', 'true');
+    res.setHeader('Access-Control-Allow-Origin', 'http://localhost:8000');
+    res.setHeader('Access-Control-Allow-Headers', 'Origin, X-Requested-With, Content-Type, Accept');
+
+    next();
+});
+
 app.get('/meals', function (req, res) {
     dbPromise
         .then(function (db) {
@@ -28,9 +38,11 @@ app.get('/meals', function (req, res) {
 });
 
 app.get('/items', function (req, res) {
+    var today = getTodayDate();
+
     dbPromise
         .then(function (db) {
-            return db.collection('items').find({}).toArray();
+            return db.collection('items').find({ date: today }).toArray();
         })
         .then(function (items) {
             res.json({ items: items });
@@ -85,8 +97,6 @@ app.post('/stats', function (req, res) {
             res.status(500).text(err);
         });
 });
-
-app.use(bodyParser.json());
 
 app.listen(APP_PORT, function () {
     console.log('Example app listening on port', APP_PORT);

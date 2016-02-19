@@ -1,0 +1,63 @@
+<ion-view>
+    <ion-nav-bar class="bar bar-header">
+        <ion-nav-title>
+            <span class="title">Bodybuilding</span>
+        </ion-nav-title>
+
+        <ion-nav-buttons side="right">
+            <button class="button button-energized" ng-click="showTrackMenu()">Track</button>
+        </ion-nav-buttons>
+    </ion-nav-bar>
+
+    <ion-content>
+        <div class="card">
+            <div class="item item-text-wrap">
+                <div class="row">
+                    <div class="col"><strong>Consumed:</strong></div>
+                    <div class="col">{{ consumed() }}</div>
+                </div>
+
+                <div class="row">
+                    <div class="col"><strong>Burned:</strong></div>
+                    <div class="col">{{ burned() }}</div>
+                </div>
+
+                <div class="row">
+                    <div class="col"><strong>Limit:</strong></div>
+                    <div class="col">{{ limit() }}</div>
+                </div>
+
+                <div class="row">
+                    <div class="col"><strong>Need:</strong></div>
+                    <div class="col">{{ need() }}</div>
+                </div>
+
+                <div class="row">
+                    <div class="col"><strong>Lack:</strong></div>
+                    <div class="col">{{ lack() }}</div>
+                </div>
+
+                <div class="row">
+                    <div class="col"><strong>Weight loss:</strong></div>
+                    <div class="col">{{ weightLoss() }}</div>
+                </div>
+
+                <div class="row">
+                    <div class="col"><strong>Actual weight:</strong></div>
+                    <div class="col">{{ stats.actual_weight }}</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="list card" ng-show="items.length > 0">
+            <div class="item item-text-wrap">
+                <div class="row" ng-repeat="item in items">
+                    <div class="col col-60"><strong>{{ item.title }}</strong></div>
+                    <div class="col">{{ item.amount | number:0 }}</div>
+                    <div class="col">{{ item.calories | number:0 }}</div>
+                    <div class="col">{{ item.amount * item.calories | number:0 }}</div>
+                </div>
+            </div>
+        </div>
+    </ion-content>
+</ion-view>
